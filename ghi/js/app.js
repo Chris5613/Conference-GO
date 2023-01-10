@@ -1,3 +1,19 @@
+function createCard(name, description, pictureUrl,starts,ends) {
+    return `
+        <div class="card ">
+            <img src="${pictureUrl}" class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title">${name}</h5>
+                <p class="card-text">${description}</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">${starts} - ${ends}</small>
+            </div>
+        </div>
+        `;
+    }
+
+
 window.addEventListener('DOMContentLoaded', async () => {
 
     const url = 'http://localhost:8000/api/conferences/';
@@ -18,7 +34,9 @@ window.addEventListener('DOMContentLoaded', async () => {
                 const title = details.conference.title;
                 const description = details.conference.description;
                 const pictureUrl = details.conference.location.picture_url;
-                const html = createCard(title, description, pictureUrl);
+                const starts = new Date(details.conference.starts).toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"})
+                const ends = new Date(details.conference.ends).toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"})
+                const html = createCard(title, description, pictureUrl,starts,ends);
 
                 const column = document.querySelector('.col');
                 column.innerHTML += html;
@@ -31,15 +49,3 @@ window.addEventListener('DOMContentLoaded', async () => {
     }
 
     });
-
-function createCard(name, description, pictureUrl) {
-    return `
-        <div class="card ">
-            <img src="${pictureUrl}" class="card-img-top">
-            <div class="card-body">
-                <h5 class="card-title">${name}</h5>
-                <p class="card-text">${description}</p>
-            </div>
-        </div>
-        `;
-    }
