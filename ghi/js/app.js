@@ -23,7 +23,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         const response = await fetch(url);
 
         if (!response.ok) {
-        // Figure out what to do when the response is bad
+            console.error("bad response");
         } else {
         const data = await response.json();
 
