@@ -1,0 +1,26 @@
+// Get the cookie out of the cookie store
+const payloadCookie = await cookieStore.get("jwt_access_payload")
+  // The cookie value is a JSON-formatted string, so parse it
+    const encodedPayload = JSON.parse(payloadCookie.value);
+
+  // Convert the encoded payload from base64 to normal string
+    const decodedPayload = atob(encodedPayload)
+
+  // The payload is a JSON-formatted string, so parse it
+    const payload = JSON.parse(decodedPayload)
+
+  // Print the payload
+    console.log(payload);
+
+    const permissions = payload.user.perms;
+    if (permissions.includes('events.add_conference')) {
+        const conferenceTag = document.getElementById('')
+        conferenceTag.classList.remove('d-none')
+    }
+
+    // Check if "events.add_location" is in the permissions.
+    // If it is, remove 'd-none' from the link
+    if (permissions.includes('events.add_location')) {
+        const locationTag = document.getElementById('')
+        locationTag.classList.remove('d-none')
+    }
