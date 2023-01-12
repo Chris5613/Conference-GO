@@ -15,7 +15,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
-const formTag = document.getElementById('create-conference-form')
+const formTag = document.getElementById('create-attendee-form')
 formTag.addEventListener('submit', async event => {
     event.preventDefault();
     const formData = new FormData(formTag);
