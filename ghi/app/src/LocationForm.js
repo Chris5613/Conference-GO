@@ -72,10 +72,6 @@ function LocationForm(props) {
         fetchData();
   }, []);
 
-//   return(
-//     <p>A location form</p>
-//   )
-// }
 
 return (
     <div className="row">

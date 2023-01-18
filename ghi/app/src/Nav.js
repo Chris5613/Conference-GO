@@ -19,8 +19,8 @@ function Nav() {
             <NavLink className="nav-link" aria-current="page" to="/conference/new">
               New Conference
             </NavLink>
-            <NavLink className="nav-link" aria-current="page" to="/attendees/new">
-              New attendees
+            <NavLink className="nav-link" aria-current="page" to="/presentation/new">
+              New Presentation
             </NavLink>
           </ul>
         </div>
